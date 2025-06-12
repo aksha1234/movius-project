@@ -1,4 +1,4 @@
-from agents.autogen_movie_agent import MovieAgent
+from agents.autogen_movie_agent import AutoGenMovieAgent
 from config.config import settings
 import json
 from rich.console import Console
@@ -10,7 +10,7 @@ def main():
     console = Console()
     
     # Initialize the movie recommendation agent
-    agent = MovieAgent()
+    agent = AutoGenMovieAgent()
     
     # Welcome message
     console.print(Panel.fit(

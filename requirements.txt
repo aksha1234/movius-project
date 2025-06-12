@@ -5,4 +5,7 @@ pydantic-settings
 groq>=0.4.0
 tmdbv3api
 rich>=13.0.0
-typer>=0.9.0 
+typer>=0.9.0
+pyautogen>=0.2.0
+numpy>=1.24.0
+pandas>=2.0.0 

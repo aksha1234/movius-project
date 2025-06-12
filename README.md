@@ -1,31 +1,53 @@
-# AI Conversational Agent - Movie Recommendation System
+# AI Movie Recommendation System with AutoGen
 
 ## Overview
-This project implements an intelligent conversational agent that helps users discover and get recommendations for movies based on their preferences and interests. The agent uses a multi-turn conversation approach to understand user preferences and provide personalized movie recommendations.
+This project implements an intelligent movie recommendation system using AutoGen's multi-agent framework. The system uses multiple specialized agents to provide personalized movie recommendations through natural conversation. Each agent has a specific role in understanding user preferences and providing detailed movie suggestions.
 
 ## Features
+- Multi-agent conversation system using AutoGen
+- Specialized agents for different aspects of movie recommendations:
+  - Movie Expert: Provides detailed movie knowledge and recommendations
+  - Preference Analyzer: Extracts and analyzes user preferences
+  - User Proxy: Manages user interaction
 - Natural language understanding of movie preferences
-- Multi-turn conversation capability
-- Personalized movie recommendations
-- Fallback handling for unclear requests
-- Context-aware responses
-- Integration with movie database API
+- Integration with TMDB API for movie data
 - Rich command-line interface with colored output
+- Group chat capabilities for collaborative recommendations
 
 ## Technical Architecture
 The system is built using:
 - Python 3.9+
+- AutoGen framework for multi-agent conversations
 - Groq LLM for natural language processing
 - TMDB API for movie data
 - Rich library for terminal formatting
-- SQLite for conversation state management
+
+## Agent Roles
+
+### Movie Expert Agent
+- Provides detailed movie recommendations
+- Discusses plot details, themes, and cinematic elements
+- Considers user preferences and similar movies
+- Suggests different genres that might appeal to the user
+
+### Preference Analyzer Agent
+- Extracts and analyzes user preferences
+- Identifies preferred genres, actors, and directors
+- Determines time period preferences
+- Recognizes specific themes or elements users enjoy
+
+### User Proxy Agent
+- Manages the conversation flow
+- Coordinates between different agents
+- Handles user input and output
+- Maintains conversation context
 
 ## Setup Instructions
 
 1. Clone the repository:
 ```bash
 git clone [repository-url]
-cd movie-recommendation-agent
+cd movie-recommendation-system
 ```
 
 2. Create a virtual environment:
@@ -54,21 +76,13 @@ python app.py
 
 ## Project Structure
 ```
-movie-recommendation-agent/
+movie-recommendation-system/
 ├── agents/
-│   ├── __init__.py
-│   └── movie_agent.py
+│   └── autogen_movie_agent.py
 ├── config/
 │   └── config.py
-├── database/
-│   └── conversation_store.py
-├── services/
-│   ├── movie_service.py
-│   └── conversation_service.py
-├── utils/
-│   ├── logger.py
-│   └── helpers.py
 ├── app.py
+├── main.py
 ├── requirements.txt
 └── README.md
 ```
@@ -97,18 +111,19 @@ How to use:
 4. Type 'quit' or 'exit' to end the conversation
 
 You: I'm looking for a good movie to watch tonight
-Assistant: I'd be happy to help you find a movie! Could you tell me what kind of movies you usually enjoy?
+Movie Expert: I'd be happy to help! Could you tell me what kind of movies you usually enjoy?
 
 You: I like action movies with some comedy
-Assistant: Great choice! Would you prefer recent releases or are you open to older classics as well?
+Preference Analyzer: I've analyzed your preferences. You seem to enjoy action-comedy films. Would you prefer recent releases or are you open to older classics as well?
 
-You: Recent ones would be better
-Assistant: I have a few recommendations for you. How about "Bullet Train" (2022) - it's an action-comedy with Brad Pitt, or "The Unbearable Weight of Massive Talent" (2022) starring Nicolas Cage?
+Movie Expert: Based on your preference for action-comedy, I'd recommend "Bullet Train" (2022). It's a perfect blend of action and humor, starring Brad Pitt as a reluctant assassin on a high-speed train in Japan. The movie features intense action sequences, witty dialogue, and an ensemble cast.
 
-You: Tell me more about Bullet Train
-Assistant: "Bullet Train" is a 2022 action-comedy directed by David Leitch. It follows five assassins aboard a bullet train in Japan, with Brad Pitt playing a reluctant assassin. The movie features intense action sequences, witty dialogue, and an ensemble cast. Would you like to know more about the cast or the plot?
+[System provides formatted recommendations with details]
 ```
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
