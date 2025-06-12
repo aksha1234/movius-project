@@ -1,7 +1,7 @@
 import typer
 from rich.console import Console
 from rich.prompt import Prompt
-from agents.movie_agent import MovieRecommendationAgent
+from agents.autogen_movie_agent import MovieAgent
 from config.config import settings
 
 app = typer.Typer()
@@ -13,7 +13,7 @@ def start():
     console.print("[bold green]Welcome to the Movie Recommendation Agent![/bold green]")
     console.print("I'm here to help you find the perfect movie to watch.")
     
-    agent = MovieRecommendationAgent()
+    agent = MovieAgent()
     
     while True:
         try:
